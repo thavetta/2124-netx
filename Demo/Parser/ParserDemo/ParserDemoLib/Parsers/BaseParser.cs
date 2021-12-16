@@ -2,7 +2,7 @@
 
 namespace ParserDemoLib.Parsers;
 
-public abstract class BaseParser
+public abstract class BaseParser : IParser
 {
     public List<BaseModel> ZpracujFile(string fileName)
     {

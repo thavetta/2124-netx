@@ -1,6 +1,6 @@
 ﻿namespace ParserDemoLib.Parsers;
 
-public class ParserFactory
+public class ParserFactory : IParserFactory
 {
     public BaseParser VyberParser(string fileName)
     {
