@@ -59,7 +59,7 @@ public class Zlomek : IEquatable<Zlomek>, IComparable<Zlomek>, IComparable
 
     public static Zlomek operator /(Zlomek z1, Zlomek z2)
     {
-        if (z2.Jmenovatel == 0)
+        if (z2.Citatel == 0)
             throw new DivideByZeroException();
     
         int citatel = z1.Citatel * z2.Jmenovatel;
