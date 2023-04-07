@@ -8,14 +8,14 @@ V tomto cvičení vytvoříte aplikaci, která vypíše základní operace mezi 
 1. V souboru program.cs odstraňte veškerý připravený kód
 1. Zadejte kód, kterým vytvoříte proměnné a b, obě typu int a přiřaďte jim nějakou rozumnou hodnotu (číslo od 1 do 20)
 
-        int a = 10;
-        int b = 15;
+        int a = 15;
+        int b = 6;
         
 1. Pomocí Console.WriteLine vypište výsledek různých operací. Jako vzor můžete použít příklad s operací +
 
         Console.WriteLine($"{a} + {b} = {a + b}");
         
-1. Ve stejném duchu vypište operace -,*,/,>>,<<
+1. Ve stejném duchu vypište operace -,*,/,%,>>,<<. U dělení pomocí přetypování zkuste i výpočet v reálných číslech.
 1. Stiskem klávesy F5 spustíte aplikaci. mělo by se otevřít cmdline okno a vypsat zadané výpočty.
 
 ## Extra zadání

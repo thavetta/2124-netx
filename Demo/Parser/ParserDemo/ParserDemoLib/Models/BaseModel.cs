@@ -4,10 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ParserDemoLib.Models
+namespace ParserDemoLib.Models;
+/// <summary>
+/// Základ pro jakýkoliv Model v aplikaci
+/// </summary>
+public abstract class BaseModel
 {
-    public abstract class BaseModel
-    {
-        public DateTime Vytvoreno { get; set; }
-    }
+    /// <summary>
+    /// Určuje okamžik vytvoření záznamu
+    /// </summary>
+    public DateTime Vytvoreno { get; set; }
 }

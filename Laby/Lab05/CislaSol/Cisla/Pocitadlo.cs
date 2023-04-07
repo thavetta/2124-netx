@@ -1,80 +1,95 @@
-﻿namespace Cisla;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-public class Pocitadlo
+namespace Cisla
 {
-    public static int NactiCislo(string text = "Zadej číslo:")
+    public class Pocitadlo : IVypocty
     {
-        int cislo;
-        while (true)
+        public int Faktorial(int a)
         {
-            Console.WriteLine(text);
-            if (int.TryParse(Console.ReadLine(), out cislo))
-                break;
-            Console.WriteLine("Nekorektně zadané číslo / opakujte");
+            TestPrirozeneCisloMinimalne(a, 1);
 
-        }
-        return cislo;
-    }
-
-    public static int NSD(int x, int y)
-    {
-        if (x < 1 || y < 1)
-            throw new ArgumentOutOfRangeException("Vstup musí být kladný větší než 0");
-
-        while (x != y)
-        {
-            if (x > y)
-            {
-                x -= y;
-            }
+            if (a == 1)
+                return 1;
             else
-            {
-                y -= x;
-            }
+                return a * Faktorial(a - 1);
         }
-        return x;
-    }
 
-    public static int NSN(int x, int y)
-    {
-        return x * y / NSD(x, y);
-    }
-
-    public static int Faktorial(int x)
-    {
-        if (x == 1)
-            return 1;
-
-        return x * Faktorial(x - 1);
-    }
-
-    public static bool JePrvocislo(int x)
-    {
-        // Pro čísla menší než 2 nejde vůbec mluvit o prvočíslech
-        if (x < 2)
-            return false;
-
-        //Dvojka je jediné sudé prvočíslo
-        if (x == 2)
-            return true;
-
-        //Pokud je bit 0 rovný nule, je číslo sudé a tedy není prvočíslo (dvojku vyřadil předešlý test) 
-        if ((x & 1) == 0)
-            return false;
-
-        //Dělite má smysl hledat jen do odmocniny z testovaného čísla
-        int limit = (int)Math.Sqrt(x) + 1;
-
-        //Nemá smysl dělit sudým číslem, sudé číslo krát cokoliv je sudé číslo a my máme teď jasno, že naše číslo je liché.
-        for (int delic = 3; delic < limit; delic += 2)
+        public bool JePrvocislo(int cislo)
         {
-            //Pokud najdu dělitele, je číslo prvočíslo
-            if ((x % delic) == 0)
+            if (cislo < 2)
+                throw new ArgumentOutOfRangeException(nameof(cislo), "Zda je číslo prvočíslo lze určit jen pro čísla větší než 1");
+            if (cislo == 2)
+                return true;
+            if ((cislo & 1) == 0)
                 return false;
+            
+            int limit = (int)Math.Sqrt(cislo);
+
+            for (int delic = 3; delic < limit; delic += 2)
+            {
+                if (cislo % delic == 0)
+                    return false;
+            }
+            
+            return true;
         }
 
-        //Pokud jsem nenašel dělitele, je číslo prvočíslo
-        return true;
+        public int NSD(int a, int b)
+        {
+            TestPrirozeneCisloMinimalne(a, 1);
+            TestPrirozeneCisloMinimalne(b, 1);
 
+            while (a != b)
+            {
+                if (a > b)
+                    a -= b;
+                else
+                    b -= a;
+            }
+            return a;
+        }
+
+        public int NSN(int a, int b)
+        {
+            return (a * b) / NSD(a, b);
+        }
+
+        public int VstupCisla(string dotaz)
+        {
+            int cislo;
+            while (true)
+            {
+                try
+                {
+                    Console.WriteLine(dotaz);
+                    cislo = int.Parse(Console.ReadLine());
+                    break;
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("zadané číslo obsahuje neplatné znaky, zkuste to znovu.");
+                }
+                catch (OverflowException)
+                {
+                    Console.WriteLine("zadané číslo je příliš velké, zkuste to znovu.");
+                }
+            }
+            return cislo;
+        }
+
+        public int VstupCisla(StreamReader reader)
+        {
+            return int.Parse(reader.ReadLine());
+        }
+
+        private void TestPrirozeneCisloMinimalne(int cislo, int minimalni)
+        {
+            if (cislo < minimalni)
+                throw new ArgumentOutOfRangeException(nameof(cislo), $"Číslo musí být větší nebo rovné jako {minimalni}");
+        }
     }
 }

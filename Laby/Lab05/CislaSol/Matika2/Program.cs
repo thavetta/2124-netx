@@ -1,17 +1,18 @@
 ﻿using Cisla;
 // See https://aka.ms/new-console-template for more information
 
-int a = Pocitadlo.NactiCislo("Zadej cislo a:");
-int b = Pocitadlo.NactiCislo("Zadej cislo b:");
+IVypocty vypocty = new Pocitadlo();
 
-int nsd = Pocitadlo.NSD(a, b);
-int nsn = Pocitadlo.NSN(a, b);
+int a = vypocty.VstupCisla("Zadejte první číslo");
+int b = vypocty.VstupCisla("Zadejte druhé číslo");
 
-Console.WriteLine($"NSD({a},{b}) = {nsd}");
-Console.WriteLine($"NSN({a},{b}) = {nsn}");
+Console.WriteLine($"NSD({a},{b})={vypocty.NSD(a, b)}");
+Console.WriteLine($"NSN({a},{b})={vypocty.NSN(a, b)}");
+Console.WriteLine();
 
-int x = Pocitadlo.NactiCislo("Zadej číslo pro test prvočísla:");
+int c = vypocty.VstupCisla("Zadejte číslo pro zjištění, zda je prvočíslo");
+Console.WriteLine($"Je číslo {c} prvočíslo? {vypocty.JePrvocislo(c)}");
+Console.WriteLine();
 
-string vyrok = Pocitadlo.JePrvocislo(x) ? "je" : "není";
-
-Console.WriteLine($"Číslo {x} {vyrok} prvočíslo");
+int d = vypocty.VstupCisla("Zadejte číslo pro výpočet faktoriálu");
+Console.WriteLine($"Faktoriál čísla {d} je {vypocty.Faktorial(d)}");
