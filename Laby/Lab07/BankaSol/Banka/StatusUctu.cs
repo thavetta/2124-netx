@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace Banka;
 
-namespace Banka
+public enum StatusUctu
 {
-    public enum StatusUctu
-    {
-        Aktivny,
-        Zablokovany,
-        Zruseny
-    }
+    Aktivny,
+    Zablokovany,
+    Zruseny
 }
