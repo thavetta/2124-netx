@@ -1,23 +1,26 @@
-﻿//Tento příkaz umožní nepsat u statických metod třídy Pocitadlo název třídy
-using static Cisla.Pocitadlo;
+﻿using Cisla;
+// See https://aka.ms/new-console-template for more information
 
-int a = NactiCislo("Zadej cislo a:");
-int b = NactiCislo("Zadej cislo b:");
+IVypocty vypocty = new Pocitadlo();
+IVstupCisel vstup = new CislaVstup();
+IVystupCisel vystup = new CislaVystup();
 
-int nsd = NSD(a, b);
-int nsn = NSN(a, b);
+int a = vstup.VstupCisla("Zadejte první číslo");
+int b = vstup.VstupCisla("Zadejte druhé číslo");
 
-Console.WriteLine($"NSD({a},{b}) = {nsd}");
-Console.WriteLine($"NSN({a},{b}) = {nsn}");
+Console.WriteLine($"NSD({a},{b})={vypocty.NSD(a, b)}");
+Console.WriteLine($"NSN({a},{b})={vypocty.NSN(a, b)}");
+Console.WriteLine();
 
-int x = NactiCislo("Zadej číslo pro test prvočísla:");
+int c = vstup.VstupCisla("Zadejte číslo pro zjištění, zda je prvočíslo");
+Console.WriteLine($"Je číslo {c} prvočíslo? {vypocty.JePrvocislo(c)}");
+Console.WriteLine();
 
-string vyrok = JePrvocislo(x) ? "je" : "není";
+int d = vstup.VstupCisla("Zadejte číslo pro výpočet faktoriálu");
+Console.WriteLine($"Faktoriál čísla {d} je {vypocty.Faktorial(d)}");
+Console.WriteLine();
 
-Console.WriteLine($"Číslo {x} {vyrok} prvočíslo");
-
-int max = NactiCislo("Po jaké číslo chceš prvočísla?");
-
-int[] prvocisla = VratPrvocisla(max);
-
-VypisCisla(prvocisla, 12);
+int e = vstup.VstupCisla("Zadejte maximální číslo pro výpis prvočísel");
+Console.WriteLine($"Prvočísla do {e} jsou:");
+int[] data = vypocty.VratPrvocisla(e);
+vystup.VypisCisel(data, 10, Console.Out);
