@@ -45,5 +45,19 @@ namespace Retezce.Tests
             Assert.AreEqual(ocekavam[1], vysledek[1]);
             Assert.AreEqual(ocekavam.Length, vysledek.Length);
         }
+
+        [TestMethod()]
+        public void VypisTyp_Test()
+        {
+            int cislo = 5;
+            long cislo2 = 5L;
+            string retezec = "retezec";
+            int[] pole = new int[5];
+
+            Utils.VypisTyp(cislo);
+            Utils.VypisTyp(cislo2);
+            Utils.VypisTyp(retezec);
+            Utils.VypisTyp(pole);
+        }
     }
 }
