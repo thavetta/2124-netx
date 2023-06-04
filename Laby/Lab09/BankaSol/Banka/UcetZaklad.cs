@@ -17,7 +17,7 @@ public class UcetZaklad
         set
         {
             if (String.IsNullOrWhiteSpace(value))
-                throw new ArgumentOutOfRangeException("majitel");
+                throw new ArgumentException("Hodnota vlastnosti Majitel nemůže být prázdná");
             majitel = value;
         }
     }
