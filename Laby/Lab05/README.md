@@ -1,34 +1,34 @@
 # Lab 5
 
-## Pouití metod
+## PouÅ¾itÃ­ metod
 
-Cílem tohoto labu je nauèit se rozdìlovat kód do metod a pouívat je v programu.
+CÃ­lem tohoto labu je nauÄit se rozdÄ›lovat kÃ³d do metod a pouÅ¾Ã­vat je v programu.
 
-Pøi vytvoøení projektu si vyzkoušíte i tvorbu Unit testù pro testování metod.
+PÅ™i vytvoÅ™enÃ­ projektu si vyzkouÅ¡Ã­te i tvorbu Unit testÅ¯ pro testovÃ¡nÃ­ metod.
 
-Na testování pomocí Unit testù existuje nìkolik frameworkù - v tomto pøípadì pouijeme [xUnit](xunit.net/).
+Na testovÃ¡nÃ­ pomocÃ­ Unit testÅ¯ existuje nÄ›kolik frameworkÅ¯ - v tomto pÅ™Ã­padÄ› pouÅ¾ijeme [xUnit](xunit.net/).
 
-### Pøíprava øešení
+### PÅ™Ã­prava Å™eÅ¡enÃ­
 
-1. Vytvoøte si novı projekt typu Class Library. Název projektu bude `Cisla`. 
-Název Solution zvolte napø. `CislaSol`.
-1. V menu Tools najdìte monost NuGet Package Manager a zvolte `Package Manager Settings`.
-1. V oknì Package Manager Settings zvolte `Package Sources` a pokud tam není, pøidejte novı zdroj s názvem `nuget.org` a adresou `https://api.nuget.org/v3/index.json`. Tím se umoní staení SW knihoven z centrálního úloištì.
-1. Pøidejte do solution novı projekt typu Console Application. Název projektu bude `Matika2`.
-1. Pøidejte do solution novı projekt typu xUnit Test Project. Název projektu bude `CislaTests`.
+1. VytvoÅ™te si novÃ½ projekt typu Class Library. NÃ¡zev projektu bude `Cisla`. 
+NÃ¡zev Solution zvolte napÅ™. `CislaSol`.
+1. V menu Tools najdÄ›te moÅ¾nost NuGet Package Manager a zvolte `Package Manager Settings`.
+1. V oknÄ› Package Manager Settings zvolte `Package Sources` a pokud tam nenÃ­, pÅ™idejte novÃ½ zdroj s nÃ¡zvem `nuget.org` a adresou `https://api.nuget.org/v3/index.json`. TÃ­m se umoÅ¾nÃ­ staÅ¾enÃ­ SW knihoven z centrÃ¡lnÃ­ho ÃºloÅ¾iÅ¡tÄ›.
+1. PÅ™idejte do solution novÃ½ projekt typu Console Application. NÃ¡zev projektu bude `Matika2`.
+1. PÅ™idejte do solution novÃ½ projekt typu xUnit Test Project. NÃ¡zev projektu bude `CislaTests`.
 
-### Definice rozhraní
+### Definice rozhranÃ­
 
-1. Pøidejte do projektu soubor s názvem `IVypocty.cs`. Pokud máte novou verzi dialogu kde zadáváte jen název, vznikne automaticky soubor podle šablony Interface.
-Pokud máte klasické okno pro pøidání, vyberte typ dokumentu Interface.
-1. Interface slouí k definici metod, kterou má tøída umìt pro své okolí. Doplòte do `IVypocty` následující pøedpisy metod:
-	* `int NSD(int a, int b)` - metoda pro vıpoèet NSD
-	* `int NSN(int a, int b)` - metoda pro vıpoèet NSN
-	* `bool JePrvocislo(int a, int b)` - metoda pro zjištìní, zda je èíslo prvoèíslo
-	* `int VstupCisla(string dotaz)` - metoda pro vstup èísla od uivatele
-	* `int VstupCisla(StreamReader reader)` - metoda pro vstup èísla ze souboru èi jiného zdroje
+1. PÅ™idejte do projektu `Cisla` soubor s nÃ¡zvem `IVypocty.cs`. Pokud mÃ¡te novou verzi dialogu kde zadÃ¡vÃ¡te jen nÃ¡zev, vznikne automaticky soubor podle Å¡ablony Interface.
+Pokud mÃ¡te klasickÃ© okno pro pÅ™idÃ¡nÃ­, vyberte typ dokumentu Interface.
+1. Interface slouÅ¾Ã­ k definici metod, kterou mÃ¡ tÅ™Ã­da umÄ›t pro svÃ© okolÃ­. DoplÅˆte do `IVypocty` nÃ¡sledujÃ­cÃ­ pÅ™edpisy metod:
+	* `int NSD(int a, int b)` - metoda pro vÃ½poÄet NSD
+	* `int NSN(int a, int b)` - metoda pro vÃ½poÄet NSN
+	* `bool JePrvocislo(int a, int b)` - metoda pro zjiÅ¡tÄ›nÃ­, zda je ÄÃ­slo prvoÄÃ­slo
+	* `int VstupCisla(string dotaz)` - metoda pro vstup ÄÃ­sla od uÅ¾ivatele
+	* `int VstupCisla(StreamReader reader)` - metoda pro vstup ÄÃ­sla ze souboru Äi jinÃ©ho zdroje
 
-	Vısledek by mìl vypadat takto.
+	VÃ½sledek by mÄ›l vypadat takto.
 
 		public interface IVypocty
 		{
@@ -40,14 +40,14 @@ Pokud máte klasické okno pro pøidání, vyberte typ dokumentu Interface.
 			int VstupCisla(StreamReader reader);
 		}
 
-1. Vytvoøte tøídu `Pocitadlo` a implementujte rozhraní `IVypocty`. Kód by mìl vypadat takto:
+1. VytvoÅ™te tÅ™Ã­du `Pocitadlo` a implementujte rozhranÃ­ `IVypocty`. KÃ³d by mÄ›l vypadat takto:
 
 		public class Pocitadlo : IVypocty
 		{
 		}
 
-1. IVypocty bude èervenì podtrené. Kliknìte na nìj pravım tlaèítkem a zvolte `Implement Interface`.
-1. Vısledkem by mìlo bıt (poøadí metod mùe bıt jinak):
+1. IVypocty bude ÄervenÄ› podtrÅ¾enÃ©. KliknÄ›te na nÄ›j pravÃ½m tlaÄÃ­tkem a zvolte `Implement Interface`.
+1. VÃ½sledkem by mÄ›lo bÃ½t (poÅ™adÃ­ metod mÅ¯Å¾e bÃ½t jinak):
 
         public class Pocitadlo : IVypocty
         {
@@ -82,14 +82,14 @@ Pokud máte klasické okno pro pøidání, vyberte typ dokumentu Interface.
             }
         }
 
-1. Teï se pustíme do pøípravy testù, které pøi vıvoji pomohou rychle zjistit, zda metody fungují správnì.
+1. TeÄ se pustÃ­me do pÅ™Ã­pravy testÅ¯, kterÃ© pÅ™i vÃ½voji pomohou rychle zjistit, zda metody fungujÃ­ sprÃ¡vnÄ›.
 
-### Pøíprava Unit testù
+### PÅ™Ã­prava Unit testÅ¯
 
-Unit testy jsou testy jednotlivıch metod. V tomto pøípadì budeme testovat metody z rozhraní `IVypocty`.
-1. Pøejmenujte soubor `UnitTest1.cs` na `VypoctyTests.cs`. Dotaz na pøejmenování tøídy odsouhlaste.
-1. Kliknìte pravım tlaèítkem na Dependencies v projektu `CislaTests` a zvolte `Add Project Reference`. Zaškrtnìte checkbox u projektu Cisla a potvrïte OK.
-To umoní pøístup k typùm a metodám z projektu `Cisla` v testu.
+Unit testy jsou testy jednotlivÃ½ch metod. V tomto pÅ™Ã­padÄ› budeme testovat metody z rozhranÃ­ `IVypocty`.
+1. PÅ™ejmenujte soubor `UnitTest1.cs` na `VypoctyTests.cs`. Dotaz na pÅ™ejmenovÃ¡nÃ­ tÅ™Ã­dy odsouhlaste.
+1. KliknÄ›te pravÃ½m tlaÄÃ­tkem na Dependencies v projektu `CislaTests` a zvolte `Add Project Reference`. ZaÅ¡krtnÄ›te checkbox u projektu Cisla a potvrÄte OK.
+To umoÅ¾nÃ­ pÅ™Ã­stup k typÅ¯m a metodÃ¡m z projektu `Cisla` v testu.
 1. Upravte obsah souboru `VypoctyTests.cs` takto:
 
         using Cisla;
@@ -112,18 +112,18 @@ To umoní pøístup k typùm a metodám z projektu `Cisla` v testu.
             }
         }
         
-    [Fact] je atribut, kterı oznaèuje metodu jako test. Vısledek testu je zelenı, pokud test prošel, èervenı pokud selhal.
-    Název testu je vıznamnı, protoe se z nìj dá vysledovat, co test testuje. V tomto pøípadì testuje metodu NSD, která má platnı vstup a vısledek.
+    [Fact] je atribut, kterÃ½ oznaÄuje metodu jako test. VÃ½sledek testu je zelenÃ½, pokud test proÅ¡el, ÄervenÃ½ pokud selhal.
+    NÃ¡zev testu je vÃ½znamnÃ½, protoÅ¾e se z nÄ›j dÃ¡ vysledovat, co test testuje. V tomto pÅ™Ã­padÄ› testuje metodu NSD, kterÃ¡ mÃ¡ platnÃ½ vstup a vÃ½sledek.
 
-    Sekce Arrange testu slouí k pøípravì testovacích dat. Vytvoøím si instanci tøídy Pocitadlo a pøipravím si promìnné a a b tak, e vím, jaké je jejich NSD. Vısledek oèekávám 6.
+    Sekce Arrange testu slouÅ¾Ã­ k pÅ™Ã­pravÄ› testovacÃ­ch dat. VytvoÅ™Ã­m si instanci tÅ™Ã­dy Pocitadlo a pÅ™ipravÃ­m si promÄ›nnÃ© a a b tak, Å¾e vÃ­m, jakÃ© je jejich NSD. VÃ½sledek oÄekÃ¡vÃ¡m 6.
 
-    Sekce Act testu slouí k volání testované metody. Vısledek metody NSD uloím do promìnné vysledek.
+    Sekce Act testu slouÅ¾Ã­ k volÃ¡nÃ­ testovanÃ© metody. VÃ½sledek metody NSD uloÅ¾Ã­m do promÄ›nnÃ© vysledek.
 
-    Sekce Assert testu slouí k porovnání vısledku s oèekávanım vısledkem. V tomto pøípadì pouívám metodu Assert.Equal, která porovná hodnoty dvou promìnnıch. Pokud se hodnoty rovnají, test prošel, jinak selhal.
+    Sekce Assert testu slouÅ¾Ã­ k porovnÃ¡nÃ­ vÃ½sledku s oÄekÃ¡vanÃ½m vÃ½sledkem. V tomto pÅ™Ã­padÄ› pouÅ¾Ã­vÃ¡m metodu Assert.Equal, kterÃ¡ porovnÃ¡ hodnoty dvou promÄ›nnÃ½ch. Pokud se hodnoty rovnajÃ­, test proÅ¡el, jinak selhal.
 
-1. V menu Test si najdìte Test Explorer a nechte ho zobrazit. 
-1. V Test Exploreru kliknìte na tlaèítko Run All. Probìhne build projektu a spustí se testy. Vısledek bude samozøejmì neúspìšnı, protoe nemáme ještì naprogramovanou metodu NSD.
-1. Ne se vrátíme k implementaci metody NSD, ještì si vytvoøíme testy pro další metody. Vytvoøte si testy pro metody NSN, Faktorial a JePrvocislo. Vısledek by mìl vypadat takto:
+1. V menu Test si najdÄ›te Test Explorer a nechte ho zobrazit. 
+1. V Test Exploreru kliknÄ›te na tlaÄÃ­tko Run All. ProbÄ›hne build projektu a spustÃ­ se testy. VÃ½sledek bude samozÅ™ejmÄ› neÃºspÄ›Å¡nÃ½, protoÅ¾e nemÃ¡me jeÅ¡tÄ› naprogramovanou metodu NSD.
+1. NeÅ¾ se vrÃ¡tÃ­me k implementaci metody NSD, jeÅ¡tÄ› si vytvoÅ™Ã­me testy pro dalÅ¡Ã­ metody. VytvoÅ™te si testy pro metody NSN, Faktorial a JePrvocislo. VÃ½sledek by mÄ›l vypadat takto:
 
 		[Fact]
 		public void NSN_PlatnyVstup_Vysledek()
@@ -165,9 +165,9 @@ To umoní pøístup k typùm a metodám z projektu `Cisla` v testu.
 			Assert.Equal(ocekavam, vysledek);
 		}
 	
-	Jak je vidìt, testy jsou velmi podobné. Všechny testy mají stejnou strukturu, jen se liší vstupními a oèekávanımi vıstupy.
+	Jak je vidÄ›t, testy jsou velmi podobnÃ©. VÅ¡echny testy majÃ­ stejnou strukturu, jen se liÅ¡Ã­ vstupnÃ­mi a oÄekÃ¡vanÃ½mi vÃ½stupy.
 
-1. Vyøešme ještì otázku spuštìní testù s více testovacími daty. To xUnit podporuje pomocí attributu `Theory` a `InlineData`. Upravte test NSD takto:
+1. VyÅ™eÅ¡me jeÅ¡tÄ› otÃ¡zku spuÅ¡tÄ›nÃ­ testÅ¯ s vÃ­ce testovacÃ­mi daty. To xUnit podporuje pomocÃ­ attributu `Theory` a `InlineData`. Upravte test NSD takto:
 
 		[Theory]
         [InlineData(24, 18, 6)]
@@ -183,12 +183,12 @@ To umoní pøístup k typùm a metodám z projektu `Cisla` v testu.
             Assert.Equal(ocekavam, vysledek);
         }
 
-1. Ve stejném duchu upravte i další testy.
+1. Ve stejnÃ©m duchu upravte i dalÅ¡Ã­ testy.
 
 ### Implementace metody NSD
 
-1. Najdìte si algoritmus z vıpoètu NSD v minulém cvièení. 
-pouijte ji v metodì NSD v tøídì Pocitadlo. Vısledek by mìl vypadat takto:
+1. NajdÄ›te si algoritmus z vÃ½poÄtu NSD v minulÃ©m cviÄenÃ­. 
+pouÅ¾ijte ji v metodÄ› NSD v tÅ™Ã­dÄ› Pocitadlo. VÃ½sledek by mÄ›l vypadat takto:
 
 		public int NSD(int a, int b)
 		{
@@ -202,22 +202,22 @@ pouijte ji v metodì NSD v tøídì Pocitadlo. Vısledek by mìl vypadat takto:
 			return a;
 		}
 
-1. Spuste test metody NSD a ovìøte, e teï u testy úspìšnì prošly.
+1. SpusÅ¥te test metody NSD a ovÄ›Å™te, Å¾e teÄ uÅ¾ testy ÃºspÄ›Å¡nÄ› proÅ¡ly.
 
 ### Implementace metody NSN
 
-1. Vıpoèet NSN je dán vzorcem, take jej mùeme implementovat jednoduše. Vısledek by mìl vypadat takto:
+1. VÃ½poÄet NSN je dÃ¡n vzorcem, takÅ¾e jej mÅ¯Å¾eme implementovat jednoduÅ¡e. VÃ½sledek by mÄ›l vypadat takto:
 
 		public int NSN(int a, int b)
 		{
 			return (a * b) / NSD(a, b);
 		}
 
-1. Otestujte vısledek podobnì jak u NSD.
+1. Otestujte vÃ½sledek podobnÄ› jak u NSD.
 
 ### Implementace metody Faktorial
 
-1. Vıpoèet faktoriálu je dán rekurzivním vzorcem F(n) = n * F(n-1) a víme e F(1) = 1, take jej mùeme implementovat jednoduše. Vısledek by mìl vypadat takto:
+1. VÃ½poÄet faktoriÃ¡lu je dÃ¡n rekurzivnÃ­m vzorcem F(n) = n * F(n-1) a vÃ­me Å¾e F(1) = 1, takÅ¾e jej mÅ¯Å¾eme implementovat jednoduÅ¡e. VÃ½sledek by mÄ›l vypadat takto:
 
 		public int Faktorial(int a)
         {
@@ -227,27 +227,27 @@ pouijte ji v metodì NSD v tøídì Pocitadlo. Vısledek by mìl vypadat takto:
                 return a * Faktorial(a - 1);
         }
 
-1. Opìt otestujte e metoda vrací oèekávané vısledky.
+1. OpÄ›t otestujte Å¾e metoda vracÃ­ oÄekÃ¡vanÃ© vÃ½sledky.
 
 ### Implementace metody JePrvocislo
 
-1. Prvoèíslo je èíslo, které je dìlitelné pouze jednièkou a sebou samım. Jednièka se za prvoèíslo nepovauje.
-Z matematiky víme, e pokoušet se o dìlení staèí jen do odmocniny z daného èísla. To vıznamnì zjednoduší vıpoèet.
-Dále mùeme algoritmu ulehèit práci, pokud hned na zaèátku vyøešíme sudá èísla. Jediné sudé èíslo které je zároveò prvoèíslem je 2.
-1. První èást metody tak mùe vypadat takto:
+1. PrvoÄÃ­slo je ÄÃ­slo, kterÃ© je dÄ›litelnÃ© pouze jedniÄkou a sebou samÃ½m. JedniÄka se za prvoÄÃ­slo nepovaÅ¾uje.
+Z matematiky vÃ­me, Å¾e pokouÅ¡et se o dÄ›lenÃ­ staÄÃ­ jen do odmocniny z danÃ©ho ÄÃ­sla. To vÃ½znamnÄ› zjednoduÅ¡Ã­ vÃ½poÄet.
+DÃ¡le mÅ¯Å¾eme algoritmu ulehÄit prÃ¡ci, pokud hned na zaÄÃ¡tku vyÅ™eÅ¡Ã­me sudÃ¡ ÄÃ­sla. JedinÃ© sudÃ© ÄÃ­slo kterÃ© je zÃ¡roveÅˆ prvoÄÃ­slem je 2.
+1. PrvnÃ­ ÄÃ¡st metody tak mÅ¯Å¾e vypadat takto:
 
 		bool JePrvocislo(int a)
 		{
 			if (a == 2)
 				return true;
-			//Test zda je èíslo sudé (pomocí nultého bitu, ten je u sudıch èísel vdy 0)
+			//Test zda je ÄÃ­slo sudÃ© (pomocÃ­ nultÃ©ho bitu, ten je u sudÃ½ch ÄÃ­sel vÅ¾dy 0)
 			if ((a & 1) == 0)
 				return false;
 		}
 
-1. Pro vıpoèet odmocniny z èísla mùeme pouít metodu `Math.Sqrt`. K testování dìlení se nejvíc hodí cyklus for.
-Jako vylepšení staèí dìlit jen lichımi èísly, protoe sudá èísla jsme vyøešili vıše. 
-Ještì upravíme název parametru a, na vhodnìjší `cislo`. Take celá metoda bude vypadat takto:
+1. Pro vÃ½poÄet odmocniny z ÄÃ­sla mÅ¯Å¾eme pouÅ¾Ã­t metodu `Math.Sqrt`. K testovÃ¡nÃ­ dÄ›lenÃ­ se nejvÃ­c hodÃ­ cyklus for.
+Jako vylepÅ¡enÃ­ staÄÃ­ dÄ›lit jen lichÃ½mi ÄÃ­sly, protoÅ¾e sudÃ¡ ÄÃ­sla jsme vyÅ™eÅ¡ili vÃ½Å¡e. 
+JeÅ¡tÄ› upravÃ­me nÃ¡zev parametru a, na vhodnÄ›jÅ¡Ã­ `cislo`. TakÅ¾e celÃ¡ metoda bude vypadat takto:
 
 		public bool JePrvocislo(int cislo)
         {
@@ -267,15 +267,15 @@ Ještì upravíme název parametru a, na vhodnìjší `cislo`. Take celá metoda bude v
             return true;
         }
 
-1. Teï mùete spustit všechny testy a ovìøit, e všechny testy prošly.
+1. TeÄ mÅ¯Å¾ete spustit vÅ¡echny testy a ovÄ›Å™it, Å¾e vÅ¡echny testy proÅ¡ly.
 
-### Optimalizace kódu
+### Optimalizace kÃ³du
 
-1. Vıpoèet NSD je sice funkèní, ale extrémnì neefektivní, zejména pro velká èísla. Existuje mnohem lepší algoritmus, kterı je zaloen na zásadì, e NSD(a,b) = NSD(b,a % b). A vıpoèet se provádí tak dlouho, dokud modulo není nula. Pak je b vıslednım NSD. Take celá metoda NSD mùe vypadat takto:
+1. VÃ½poÄet NSD je sice funkÄnÃ­, ale extrÃ©mnÄ› neefektivnÃ­, zejmÃ©na pro velkÃ¡ ÄÃ­sla. Existuje mnohem lepÅ¡Ã­ algoritmus, kterÃ½ je zaloÅ¾en na zÃ¡sadÄ›, Å¾e NSD(a,b) = NSD(b,a % b). A vÃ½poÄet se provÃ¡dÃ­ tak dlouho, dokud modulo nenÃ­ nula. Pak je b vÃ½slednÃ½m NSD. TakÅ¾e celÃ¡ metoda NSD mÅ¯Å¾e vypadat takto:
 
 		public int NSD(int a, int b)
 		{
-			int c; // pomocná promìnná pro prohození a a b
+			int c; // pomocnÃ¡ promÄ›nnÃ¡ pro prohozenÃ­ a a b
 			while (b != 0)
 			{
 				c = a % b;
@@ -285,32 +285,32 @@ Ještì upravíme název parametru a, na vhodnìjší `cislo`. Take celá metoda bude v
 			return a;
 		}
 
-1. Otestujte e všechny NSD testy stále prošly.
+1. Otestujte Å¾e vÅ¡echny NSD testy stÃ¡le proÅ¡ly.
 
-Tento postup má oficiální název **RGR => Red, Green, Refactor**. 
-V prvním kroku se vytvoøí testy, které testují funkènost kódu. 
-V druhém kroku se implementuje kód, kterı testy prochází. 
-V posledním kroku se kód optimalizuje a zjednodušuje na základì vısledku testù nebo znalosti vıvojáøe.
+Tento postup mÃ¡ oficiÃ¡lnÃ­ nÃ¡zev **RGR => Red, Green, Refactor**. 
+V prvnÃ­m kroku se vytvoÅ™Ã­ testy, kterÃ© testujÃ­ funkÄnost kÃ³du. 
+V druhÃ©m kroku se implementuje kÃ³d, kterÃ½ testy prochÃ¡zÃ­. 
+V poslednÃ­m kroku se kÃ³d optimalizuje a zjednoduÅ¡uje na zÃ¡kladÄ› vÃ½sledku testÅ¯ nebo znalosti vÃ½vojÃ¡Å™e.
 
-### Kontrola vstupních parametrù
+### Kontrola vstupnÃ­ch parametrÅ¯
 
-1. Všechny metody v tøídì `Pocitadlo` mají jako parametr èíslo typu int. Ale metody fungují v oboru tzv. pøirozenıch èísel. Take napø. u èísla -5 neplatí, e by se jednalo o prvoèíslo, protoe definice prvoèísla vyaduje, aby to bylo kladné celé èíslo vìtší ne 1.
-1. Pro metodu `JePrvocislo` je tedy potøeba pøidat kontrolu, zda je èíslo vìtší ne 1. Tady se ale objeví nová otázka k rozhodnutí. Jaká chceme chování metody JePrvocislo pro èísla menší ne 2?
-	* Jedna monost je vrátit `false`, tedy e 1, 0, -1, -2 atd. nejsou prvoèísla.
-	* Druhá monost je vyvolat vıjimku, která bude oznaèovat, e byla zadána neplatná hodnota.
+1. VÅ¡echny metody v tÅ™Ã­dÄ› `Pocitadlo` majÃ­ jako parametr ÄÃ­slo typu int. Ale metody fungujÃ­ v oboru tzv. pÅ™irozenÃ½ch ÄÃ­sel. TakÅ¾e napÅ™. u ÄÃ­sla -5 neplatÃ­, Å¾e by se jednalo o prvoÄÃ­slo, protoÅ¾e definice prvoÄÃ­sla vyÅ¾aduje, aby to bylo kladnÃ© celÃ© ÄÃ­slo vÄ›tÅ¡Ã­ neÅ¾ 1.
+1. Pro metodu `JePrvocislo` je tedy potÅ™eba pÅ™idat kontrolu, zda je ÄÃ­slo vÄ›tÅ¡Ã­ neÅ¾ 1. Tady se ale objevÃ­ novÃ¡ otÃ¡zka k rozhodnutÃ­. JakÃ¡ chceme chovÃ¡nÃ­ metody JePrvocislo pro ÄÃ­sla menÅ¡Ã­ neÅ¾ 2?
+	* Jedna moÅ¾nost je vrÃ¡tit `false`, tedy Å¾e 1, 0, -1, -2 atd. nejsou prvoÄÃ­sla.
+	* DruhÃ¡ moÅ¾nost je vyvolat vÃ½jimku, kterÃ¡ bude oznaÄovat, Å¾e byla zadÃ¡na neplatnÃ¡ hodnota.
 
-	Pozn. lektora: Osobnì v tìchto situacích preferuji vyvolání vıjimky a je pak vìcí toho, kdo metodu zavolal, zda ji odignoruje.
+	Pozn. lektora: OsobnÄ› v tÄ›chto situacÃ­ch preferuji vyvolÃ¡nÃ­ vÃ½jimky a je pak vÄ›cÃ­ toho, kdo metodu zavolal, zda ji odignoruje.
 	
-1. Zaèátek metody `JePrvocislo` by tak mohl vypadat takto:
+1. ZaÄÃ¡tek metody `JePrvocislo` by tak mohl vypadat takto:
 
 		public bool JePrvocislo(int cislo)
         {
 			if (cislo < 2)
-				throw new ArgumentOutOfRangeException(nameof(cislo), "Zda je èíslo prvoèíslo lze urèit jen pro èísla vìtší ne 1");
+				throw new ArgumentOutOfRangeException(nameof(cislo), "Zda je ÄÃ­slo prvoÄÃ­slo lze urÄit jen pro ÄÃ­sla vÄ›tÅ¡Ã­ neÅ¾ 1");
 
-1. Pro otestování chování, kdy ádoucí vısledek je vıjimka, je nutné udìlat novou test metodu.
-její kód bude v tuto chvíli pro Vás malé woo-doo.
-Ale všechno co potøebujete vìdìt je, e vıjimka je typu `ArgumentOutOfRangeException`.
+1. Pro otestovÃ¡nÃ­ chovÃ¡nÃ­, kdy Å¾Ã¡doucÃ­ vÃ½sledek je vÃ½jimka, je nutnÃ© udÄ›lat novou test metodu.
+jejÃ­ kÃ³d bude v tuto chvÃ­li pro VÃ¡s malÃ© woo-doo.
+Ale vÅ¡echno co potÅ™ebujete vÄ›dÄ›t je, Å¾e vÃ½jimka je typu `ArgumentOutOfRangeException`.
 
 		[Theory]
 		[InlineData(-5)]
@@ -325,17 +325,17 @@ Ale všechno co potøebujete vìdìt je, e vıjimka je typu `ArgumentOutOfRangeExcep
 			Assert.Throws<ArgumentOutOfRangeException>(() => vypocty.JePrvocislo(a));
 		}
 
-	Assert.Throws je metoda, která oèekává, e bude vyvolána vıjimka v metodì, která je pøedána do metody jako parametr. 
-	Tomu divnému vırazu se šipkou se øíká lambda vıraz a definuje se s ním tzv. delegát. O tom ještì bude na kurzu kapitola.
+	Assert.Throws je metoda, kterÃ¡ oÄekÃ¡vÃ¡, Å¾e bude vyvolÃ¡na vÃ½jimka v metodÄ›, kterÃ¡ je pÅ™edÃ¡na do metody jako parametr. 
+	Tomu divnÃ©mu vÃ½razu se Å¡ipkou se Å™Ã­kÃ¡ lambda vÃ½raz a definuje se s nÃ­m tzv. delegÃ¡t. O tom jeÅ¡tÄ› bude na kurzu kapitola.
 
-1. Nyní mùete spustit všechny testy a ovìøit, e všechny testy prošly.
-1. Pøipravte principiálnì stejné testy pro metody `Faktorial`, `NSD` a `NSN`.
-1. Ve stejném duchu mùete pøidat kontrolu, zda jsou vstupní parametry vìtší ne 0 i do metod `Faktorial`, `NSD` a `NSN`.
+1. NynÃ­ mÅ¯Å¾ete spustit vÅ¡echny testy a ovÄ›Å™it, Å¾e vÅ¡echny testy proÅ¡ly.
+1. PÅ™ipravte principiÃ¡lnÄ› stejnÃ© testy pro metody `Faktorial`, `NSD` a `NSN`.
+1. Ve stejnÃ©m duchu mÅ¯Å¾ete pÅ™idat kontrolu, zda jsou vstupnÃ­ parametry vÄ›tÅ¡Ã­ neÅ¾ 0 i do metod `Faktorial`, `NSD` a `NSN`.
 
-### Vstup èísel z klávesnice nebo streamu
+### Vstup ÄÃ­sel z klÃ¡vesnice nebo streamu
 
-1. Metody VratCislo mají umonit buï vstup uivatelem zadaného èísla, nebo vstup ze streamu.
-1. Metoda VstupCisla která má parametr string, jsme naprogramovali v cvièení 4.2 a staèí jen zkopírovat a jemnì upravit u hotovı kód.
+1. Metody VratCislo majÃ­ umoÅ¾nit buÄ vstup uÅ¾ivatelem zadanÃ©ho ÄÃ­sla, nebo vstup ze streamu.
+1. Metoda VstupCisla kterÃ¡ mÃ¡ parametr string, jsme naprogramovali v cviÄenÃ­ 4.2 a staÄÃ­ jen zkopÃ­rovat a jemnÄ› upravit uÅ¾ hotovÃ½ kÃ³d.
 
         public int VstupCisla(string dotaz)
         {
@@ -350,57 +350,57 @@ Ale všechno co potøebujete vìdìt je, e vıjimka je typu `ArgumentOutOfRangeExcep
                 }
                 catch (FormatException)
                 {
-                    Console.WriteLine("zadané èíslo obsahuje neplatné znaky, zkuste to znovu.");
+                    Console.WriteLine("zadanÃ© ÄÃ­slo obsahuje neplatnÃ© znaky, zkuste to znovu.");
                 }
                 catch (OverflowException)
                 {
-                    Console.WriteLine("zadané èíslo je pøíliš velké, zkuste to znovu.");
+                    Console.WriteLine("zadanÃ© ÄÃ­slo je pÅ™Ã­liÅ¡ velkÃ©, zkuste to znovu.");
                 }
             }
             return cislo;
         }
 
-1. Metoda VstupCisla která má parametr stream bude pouze pøevádìt obsah øádku na èíslo a budeme doufat e to bude fungovat.
+1. Metoda VstupCisla kterÃ¡ mÃ¡ parametr stream bude pouze pÅ™evÃ¡dÄ›t obsah Å™Ã¡dku na ÄÃ­slo a budeme doufat Å¾e to bude fungovat.
 
         public int VstupCisla(StreamReader reader)
         {
             return int.Parse(reader.ReadLine());
         }
 
-1. Testy k tìmto metodám teï dìlat nebudeme, tady je situace drobet sloitìjší.
+1. Testy k tÄ›mto metodÃ¡m teÄ dÄ›lat nebudeme, tady je situace drobet sloÅ¾itÄ›jÅ¡Ã­.
 
-### Pouití knihovny Cisla v consolové aplikaci Matika2
+### PouÅ¾itÃ­ knihovny Cisla v consolovÃ© aplikaci Matika2
 
-1. V projektu Matika2 kliknìte pravım tlaèítkem na `Dependencies` a vyberte volbu `Add Project Reference`.
-1. V dialogu zaškrtnìte checkbox u projektu `Cisla`.
-1. V Program.cs vytvoøte kód, kterım získáte od uivatele dvì èísla. K tìm mu spoèítáte a vypíšete NSD a NSN.
-1. Dále si vyádáte od uivatele èíslo a vypíšete, zda je prvoèíslo.
-1. Nakonec si vyádáte od uivatele èíslo a vypíšete jeho faktoriál.
-1. Kód by mohl vypadat takto
+1. V projektu Matika2 kliknÄ›te pravÃ½m tlaÄÃ­tkem na `Dependencies` a vyberte volbu `Add Project Reference`.
+1. V dialogu zaÅ¡krtnÄ›te checkbox u projektu `Cisla`.
+1. V Program.cs vytvoÅ™te kÃ³d, kterÃ½m zÃ­skÃ¡te od uÅ¾ivatele dvÄ› ÄÃ­sla. K tÄ›m mu spoÄÃ­tÃ¡te a vypÃ­Å¡ete NSD a NSN.
+1. DÃ¡le si vyÅ¾Ã¡dÃ¡te od uÅ¾ivatele ÄÃ­slo a vypÃ­Å¡ete, zda je prvoÄÃ­slo.
+1. Nakonec si vyÅ¾Ã¡dÃ¡te od uÅ¾ivatele ÄÃ­slo a vypÃ­Å¡ete jeho faktoriÃ¡l.
+1. KÃ³d by mohl vypadat takto
 
 		using Cisla;
 
 		IVypocty vypocty = new Pocitadlo();
 
-		int a = vypocty.VstupCisla("Zadejte první èíslo");
-		int b = vypocty.VstupCisla("Zadejte druhé èíslo");
+		int a = vypocty.VstupCisla("Zadejte prvnÃ­ ÄÃ­slo");
+		int b = vypocty.VstupCisla("Zadejte druhÃ© ÄÃ­slo");
 
 		Console.WriteLine($"NSD({a},{b})={vypocty.NSD(a,b)}");
 		Console.WriteLine($"NSN({a},{b})={vypocty.NSN(a,b)}");
 
-		int c = vypocty.VstupCisla("Zadejte èíslo pro zjištìní, zda je prvoèíslo");
-		Console.WriteLine($"Je èíslo {c} prvoèíslo? {vypocty.JePrvocislo(c)}");
+		int c = vypocty.VstupCisla("Zadejte ÄÃ­slo pro zjiÅ¡tÄ›nÃ­, zda je prvoÄÃ­slo");
+		Console.WriteLine($"Je ÄÃ­slo {c} prvoÄÃ­slo? {vypocty.JePrvocislo(c)}");
 
-		int d = vypocty.VstupCisla("Zadejte èíslo pro vıpoèet faktoriálu");
-		Console.WriteLine($"Faktoriál èísla {d} je {vypocty.Faktorial(d)}");
+		int d = vypocty.VstupCisla("Zadejte ÄÃ­slo pro vÃ½poÄet faktoriÃ¡lu");
+		Console.WriteLine($"FaktoriÃ¡l ÄÃ­sla {d} je {vypocty.Faktorial(d)}");
 
-1. Nezapomeòte nastavit Matika2 ja StartUp projekt a spuste aplikaci a ovìøte, e vše funguje.
+1. NezapomeÅˆte nastavit Matika2 ja StartUp projekt a spusÅ¥te aplikaci a ovÄ›Å™te, Å¾e vÅ¡e funguje.
 
-Jak vidíte, pøi programování se preferuje pouívání interface, kterı je vytvoøen pro danou úlohu.
-Dále samotnı vıkonnı kód je zvykem dávat do knihoven, aby byl znovupouitelnı v jinıch projektech.
-Pak lze jednoduše aplikovat testy, pro garanci e v knihovnì je kód správnì.
-A pouití dobøe navrené knihovny je pak pøímoèaré a jednoduché.
+Jak vidÃ­te, pÅ™i programovÃ¡nÃ­ se preferuje pouÅ¾Ã­vÃ¡nÃ­ interface, kterÃ½ je vytvoÅ™en pro danou Ãºlohu.
+DÃ¡le samotnÃ½ vÃ½konnÃ½ kÃ³d je zvykem dÃ¡vat do knihoven, aby byl znovupouÅ¾itelnÃ½ v jinÃ½ch projektech.
+Pak lze jednoduÅ¡e aplikovat testy, pro garanci Å¾e v knihovnÄ› je kÃ³d sprÃ¡vnÄ›.
+A pouÅ¾itÃ­ dobÅ™e navrÅ¾enÃ© knihovny je pak pÅ™Ã­moÄarÃ© a jednoduchÃ©.
 
-A otázka na závìr:
+A otÃ¡zka na zÃ¡vÄ›r:
 
-**Jakı máte pocit z metod VstupCisla v interface Vypocty?**
+**JakÃ½ mÃ¡te pocit z metod VstupCisla v interface Vypocty?**
