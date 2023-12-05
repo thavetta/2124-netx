@@ -24,6 +24,7 @@ Pokud máte klasické okno pro přidání, vyberte typ dokumentu Interface.
 1. Interface slouží k definici metod, kterou má třída umět pro své okolí. Doplňte do `IVypocty` následující předpisy metod:
 	* `int NSD(int a, int b)` - metoda pro výpočet NSD
 	* `int NSN(int a, int b)` - metoda pro výpočet NSN
+ 	* `int Faktorial(int a)` - metoda pro výpočet faktoriálu daného čísla (a!)
 	* `bool JePrvocislo(int a, int b)` - metoda pro zjištění, zda je číslo prvočíslo
 	* `int VstupCisla(string dotaz)` - metoda pro vstup čísla od uživatele
 	* `int VstupCisla(StreamReader reader)` - metoda pro vstup čísla ze souboru či jiného zdroje
