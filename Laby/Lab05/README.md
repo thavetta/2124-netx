@@ -25,7 +25,7 @@ Pokud máte klasické okno pro přidání, vyberte typ dokumentu Interface.
 	* `int NSD(int a, int b)` - metoda pro výpočet NSD
 	* `int NSN(int a, int b)` - metoda pro výpočet NSN
  	* `int Faktorial(int a)` - metoda pro výpočet faktoriálu daného čísla (a!)
-	* `bool JePrvocislo(int a, int b)` - metoda pro zjištění, zda je číslo prvočíslo
+	* `bool JePrvocislo(int a)` - metoda pro zjištění, zda je číslo prvočíslo
 	* `int VstupCisla(string dotaz)` - metoda pro vstup čísla od uživatele
 	* `int VstupCisla(StreamReader reader)` - metoda pro vstup čísla ze souboru či jiného zdroje
 
