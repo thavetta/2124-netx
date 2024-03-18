@@ -48,6 +48,7 @@ public class VypoctyTests
     [InlineData(5, true)]
     [InlineData(53, true)]
     [InlineData(4, false)]
+    [InlineData(9, false)]
     public void JePrvocislo_PlatnyVstup_Vysledek(int a, bool ocekavam)
     {
         //Arange

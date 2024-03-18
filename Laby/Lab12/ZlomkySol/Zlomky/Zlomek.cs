@@ -2,7 +2,7 @@
 
 namespace Zlomky;
 
-public class Zlomek : IEquatable<Zlomek>, IComparable<Zlomek>, IComparable
+public struct Zlomek : IEquatable<Zlomek>, IComparable<Zlomek>, IComparable
 {
     public int Citatel { get; }
     public int Jmenovatel { get; }
@@ -24,8 +24,9 @@ public class Zlomek : IEquatable<Zlomek>, IComparable<Zlomek>, IComparable
             Jmenovatel = 1;
             return;
         }
+        Pocitadlo pocitadlo = new Pocitadlo();
 
-        int nsd = Pocitadlo.NSD(Math.Abs(citatel), jmenovatel);
+        int nsd = pocitadlo.NSD(Math.Abs(citatel), jmenovatel);
 
         Citatel = citatel / nsd;
         Jmenovatel = jmenovatel / nsd;
@@ -77,10 +78,10 @@ public class Zlomek : IEquatable<Zlomek>, IComparable<Zlomek>, IComparable
         return z.Citatel / z.Jmenovatel;
     }
 
-    public bool Equals(Zlomek? other)
+    public bool Equals(Zlomek other)
     {
-        if (ReferenceEquals(null, other)) return false;
-        if (ReferenceEquals(this, other)) return true;
+        //if (ReferenceEquals(null, other)) return false;
+        //if (ReferenceEquals(this, other)) return true;
         return Citatel == other.Citatel && Jmenovatel == other.Jmenovatel;
     }
 
@@ -107,38 +108,38 @@ public class Zlomek : IEquatable<Zlomek>, IComparable<Zlomek>, IComparable
         return !Equals(left, right);
     }
 
-    public int CompareTo(Zlomek? other)
+    public int CompareTo(Zlomek other)
     {
-        if (ReferenceEquals(this, other)) return 0;
-        if (ReferenceEquals(null, other)) return 1;
+        //if (ReferenceEquals(this, other)) return 0;
+        //if (ReferenceEquals(null, other)) return 1;
 
         var zlomek = this - other;
         return zlomek.Citatel;
     }
 
-    public int CompareTo(object? obj)
+    public int CompareTo(object obj)
     {
-        if (ReferenceEquals(null, obj)) return 1;
-        if (ReferenceEquals(this, obj)) return 0;
+        //if (ReferenceEquals(null, obj)) return 1;
+        //if (ReferenceEquals(this, obj)) return 0;
         return obj is Zlomek other ? CompareTo(other) : throw new ArgumentException($"Object must be of type {nameof(Zlomek)}");
     }
 
-    public static bool operator <(Zlomek? left, Zlomek? right)
+    public static bool operator <(Zlomek left, Zlomek right)
     {
         return Comparer<Zlomek>.Default.Compare(left, right) < 0;
     }
 
-    public static bool operator >(Zlomek? left, Zlomek? right)
+    public static bool operator >(Zlomek left, Zlomek right)
     {
         return Comparer<Zlomek>.Default.Compare(left, right) > 0;
     }
 
-    public static bool operator <=(Zlomek? left, Zlomek? right)
+    public static bool operator <=(Zlomek left, Zlomek right)
     {
         return Comparer<Zlomek>.Default.Compare(left, right) <= 0;
     }
 
-    public static bool operator >=(Zlomek? left, Zlomek? right)
+    public static bool operator >=(Zlomek left, Zlomek right)
     {
         return Comparer<Zlomek>.Default.Compare(left, right) >= 0;
     }

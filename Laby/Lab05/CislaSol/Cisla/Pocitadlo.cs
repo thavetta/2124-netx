@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,9 +9,9 @@ namespace Cisla
 {
     public class Pocitadlo : IVypocty
     {
-        public int Faktorial(int a)
+        public BigInteger Faktorial(BigInteger a)
         {
-            TestPrirozeneCisloMinimalne(a, 1);
+            //TestPrirozeneCisloMinimalne(a, 1);
 
             if (a == 1)
                 return 1;
@@ -27,7 +28,7 @@ namespace Cisla
             if ((cislo & 1) == 0)
                 return false;
             
-            int limit = (int)Math.Sqrt(cislo);
+            int limit = (int)Math.Sqrt(cislo) + 1;
 
             for (int delic = 3; delic < limit; delic += 2)
             {

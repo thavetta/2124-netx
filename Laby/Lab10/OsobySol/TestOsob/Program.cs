@@ -1,6 +1,24 @@
 ﻿using Osoby;
+using System.Text;
+
+Osoba pracovnik = new Pracovnik(55) { Jmeno = "Tom", Mesto = "Brno", Zarazeni = "Vyvoj"};
+
+Console.WriteLine(pracovnik.SpocitejData());
 
 var seznam = VratSeznam();
+
+using StreamReader vstup2 = File.OpenText("data2.txt");
+
+using (StreamReader vstup = File.OpenText("data.txt"))
+{
+    string radek;
+    while ((radek = vstup.ReadLine()) != null)
+    {
+        Console.WriteLine(radek);
+    }
+}
+
+
 
 VypisOsoby(seznam);
 

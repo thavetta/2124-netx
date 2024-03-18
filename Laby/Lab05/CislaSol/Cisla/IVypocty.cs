@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,7 +11,7 @@ public interface IVypocty
 {
     int NSD(int a, int b);
     int NSN(int a, int b);
-    int Faktorial(int a);
+    BigInteger Faktorial(BigInteger a);
     bool JePrvocislo(int a);
     int VstupCisla(string dotaz);
     int VstupCisla(StreamReader reader);

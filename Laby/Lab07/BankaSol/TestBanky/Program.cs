@@ -3,15 +3,17 @@
 UcetZaklad ucetA = new UcetZaklad();
 UcetZaklad ucetB = new UcetZaklad();
 
-ucetA.NastavMajitele("Tomas");
-ucetA.NastavMajitele("Eva");
+ucetA = null;
 
-ucetA.Vklad(1000);
+ucetA?.NastavMajitele("Tomas");
+ucetB.NastavMajitele("Eva");
+
+ucetA?.Vklad(1000);
 ucetB.Vklad(500);
 
-ucetA.Vyber(500);
+ucetA?.Vyber(500);
 ucetB.Vyber(100);
 
 Console.WriteLine(ucetA);
 
-ucetA.Vyber(1200);
+ucetA?.Vyber(1200);
