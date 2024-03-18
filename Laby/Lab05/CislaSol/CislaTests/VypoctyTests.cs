@@ -1,3 +1,4 @@
+using System.Numerics;
 using Cisla;
 
 namespace CislaTests;
@@ -39,7 +40,7 @@ public class VypoctyTests
         //Arange
         IVypocty vypocty = new Pocitadlo();
         //Act
-        int vysledek = vypocty.Faktorial(a);
+        BigInteger vysledek = vypocty.Faktorial(a);
         //Assert
         Assert.Equal(ocekavam, vysledek);
     }

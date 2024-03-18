@@ -11,7 +11,8 @@ namespace Cisla
     {
         public BigInteger Faktorial(BigInteger a)
         {
-            //TestPrirozeneCisloMinimalne(a, 1);
+            if (a < 1)
+                throw new ArgumentOutOfRangeException(nameof(a), "Faktoriál lze počítat jen pro kladná čísla");
 
             if (a == 1)
                 return 1;
