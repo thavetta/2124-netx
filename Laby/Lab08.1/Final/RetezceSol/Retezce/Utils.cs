@@ -28,7 +28,7 @@ public class Utils
     }
 
     /// <summary>
-    /// Metoda vrací pole znaků, které mají ve vstupním řetězci největší počet výskytů 
+    /// Metoda vrací pole alfanumerických znaků, které mají ve vstupním řetězci největší počet výskytů 
     /// </summary>
     /// <param name="vstup">řetězec, který se má zpracovat</param>
     /// <returns>pole, které obsahuje znaky s největším počtem výskytů ve vstupním řetězci</returns>
@@ -42,6 +42,9 @@ public class Utils
         //Cyklus prochází znaky a napočítává výskyt
         foreach (char znak in vstup)
         {
+            if (! Char.IsLetterOrDigit(znak))
+                continue;
+
             if (seznam.ContainsKey(znak))
                 seznam[znak]++;
             else

@@ -1,6 +1,6 @@
 ﻿namespace Banka;
 
-public class UcetZaklad
+public class UcetZaklad 
 {
     private decimal stav;
     private string majitel;
