@@ -2,24 +2,24 @@
 {
     public class ObjednavacJidla
     {
-        public void PripravRanniObjednavku(IEnumerable<IJidlo> seznam)
+        public void PripravRanniObjednavku(IEnumerable<IJidlo> seznam, StreamWriter vystup = Console.Out)
         {
-            Console.WriteLine("Objednávka na ráno:");
+            vystup.WriteLine("Objednávka na ráno:");
             foreach (IJidlo item in seznam)
             {
-                Console.WriteLine(item.RanniDavka());
+                vystup.WriteLine(item.RanniDavka());
             }
-            Console.WriteLine("*********************");
+            vystup.WriteLine("*********************");
         }
 
-        public void PripravVecerniObjednavku(IEnumerable<IJidlo> seznam)
+        public void PripravVecerniObjednavku(IEnumerable<IJidlo> seznam, StreamWriter vystup = Console.Out)
         {
-            Console.WriteLine("Objednávka na večer:");
+            vystup.WriteLine("Objednávka na večer:");
             foreach (IJidlo item in seznam)
             {
-                Console.WriteLine(item.VecerniDavka());
+                vystup.WriteLine(item.VecerniDavka());
             }
-            Console.WriteLine("*********************");
+            vystup.WriteLine("*********************");
         }
     }
 }

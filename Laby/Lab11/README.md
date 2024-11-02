@@ -55,31 +55,32 @@ Cílem je ukázat jednoduchost přidání dalších zvířat v budoucnu.
 
 1. Jakmile budete mít alespoň 4 konkrétní zvířata, můžete přidat poslední třídu, která bude mít za úkol zajistit výpis ranních a večerních požadavků zvířat. Dostane název `ObjednavacJidla`.
 1. Metody pro výpis nazvěte `PripravRanniObjednavku` a `PripravVecerniObjednavku`.
-1. Pro plné uplatnění abstrakce metody dostanou sice kolekci zvířat, ale požadavek na parametr bude co nejvíc abstraktní. Proto využijeme generický interface `IEnumerable<T>`, kterému jako požadavek na typ `T`určíme, že to má být jakýkoliv typ implementující IJidlo.
+1. Pro plné uplatnění abstrakce metody dostanou sice kolekci zvířat, ale požadavek na parametr bude co nejvíc abstraktní. Proto využijeme generický interface `IEnumerable<T>`, kterému jako požadavek na typ `T`určíme, že to má být jakýkoliv typ implementující IJidlo. Tím první parametr může být jakákoliv kolekce obsahující typy implementující `IJidlo`.
+1. Druhý parametr metody umožní zapsat výstup do jakéhokoliv StreamWriteru. Jako defaultní hodnotu určete Console.Out. Pokud bude uživatel chtít, může naprogramovat výstup do souboru.
 1. Uvnitř metody nejdřív vypište o jaký typ dávky se jedná a pak pomocí foreach projděte kolekci předanou jako parametr a pro každé zvíře vyvolejte patřičnou metodu pro výpis jídla.
 1. Výsledek může vypadat například takto:
 
     ```csharp
     public class ObjednavacJidla
     {
-        public void PripravRanniObjednavku(IEnumerable<IJidlo> seznam)
+        public void PripravRanniObjednavku(IEnumerable<IJidlo> seznam, StreamWriter vystup = Console.Out)
         {
-            Console.WriteLine("Objednávka na ráno:");
+            vystup.WriteLine("Objednávka na ráno:");
             foreach (IJidlo item in seznam)
             {
-                Console.WriteLine(item.RanniDavka());
+                vystup.WriteLine(item.RanniDavka());
             }
-            Console.WriteLine("*********************");
+            vystup.WriteLine("*********************");
         }
 
-        public void PripravVecerniObjednavku(IEnumerable<IJidlo> seznam)
+        public void PripravVecerniObjednavku(IEnumerable<IJidlo> seznam, StreamWriter vystup = Console.Out)
         {
-            Console.WriteLine("Objednávka na večer:");
+            vystup.WriteLine("Objednávka na večer:");
             foreach (IJidlo item in seznam)
             {
-                Console.WriteLine(item.VecerniDavka());
+                vystup.WriteLine(item.VecerniDavka());
             }
-            Console.WriteLine("*********************");
+            vystup.WriteLine("*********************");
         }
     }
     ```
