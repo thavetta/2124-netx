@@ -52,3 +52,66 @@ Cílem je ukázat jednoduchost přidání dalších zvířat v budoucnu.
         }
     }
     ```
+
+1. Jakmile budete mít alespoň 4 konkrétní zvířata, můžete přidat poslední třídu, která bude mít za úkol zajistit výpis ranních a večerních požadavků zvířat. Dostane název `ObjednavacJidla`.
+1. Metody pro výpis nazvěte `PripravRanniObjednavku` a `PripravVecerniObjednavku`.
+1. Pro plné uplatnění abstrakce metody dostanou sice kolekci zvířat, ale požadavek na parametr bude co nejvíc abstraktní. Proto využijeme generický interface `IEnumerable<T>`, kterému jako požadavek na typ `T`určíme, že to má být jakýkoliv typ implementující IJidlo.
+1. Uvnitř metody nejdřív vypište o jaký typ dávky se jedná a pak pomocí foreach projděte kolekci předanou jako parametr a pro každé zvíře vyvolejte patřičnou metodu pro výpis jídla.
+1. Výsledek může vypadat například takto:
+
+    ```csharp
+    public class ObjednavacJidla
+    {
+        public void PripravRanniObjednavku(IEnumerable<IJidlo> seznam)
+        {
+            Console.WriteLine("Objednávka na ráno:");
+            foreach (IJidlo item in seznam)
+            {
+                Console.WriteLine(item.RanniDavka());
+            }
+            Console.WriteLine("*********************");
+        }
+
+        public void PripravVecerniObjednavku(IEnumerable<IJidlo> seznam)
+        {
+            Console.WriteLine("Objednávka na večer:");
+            foreach (IJidlo item in seznam)
+            {
+                Console.WriteLine(item.VecerniDavka());
+            }
+            Console.WriteLine("*********************");
+        }
+    }
+    ```
+
+### Aplikace pracující se zvířaty
+
+1. Do solution přidejte nový projekt typu konzolová aplikace a nazvěte ho `Zoo`
+1. Přidejte referenci na knihovnu `ZooLib`
+1. V `Program.cs` přidejte kód, který vytvoří kolekci zvířat, pak instanci třídy `ObjednavacJidla` a zavolá metody pro výpis ranních požadavků na jídlo a pak večerních.
+1. Kód by mohl vypadat takto (typy zvířat použijte podle toho, co za zvířata jste si zadefinovali):
+
+    ```csharp
+    using ZooLib;
+
+    List<Zvire> seznam = new()
+            {
+                new Slon() { Jmeno = "Franta", Vek = 10},
+                new Klokan() { Jmeno = "Baltazar", Vek = 5},
+                new Papagaj() { Jmeno = "Kral", Vek = 45},
+                new Papagaj() { Jmeno = "Kralovna", Vek = 35},
+                new Kun() { Jmeno = "Frantiska", Vek = 4}
+            };
+
+    ObjednavacJidla objednavac = new();
+
+    objednavac.PripravRanniObjednavku(seznam);
+
+    objednavac.PripravVecerniObjednavku(seznam);
+
+    ```
+
+1. Otestujte aplikaci, zda vypisuje jídla dle očekávání.
+1. Přidejte do `ZooLib` další třídu pro nové zvíře.
+1. V Program.cs přidejte do vytvářené kolekce nové zvíře.
+1. Ověřte že aplikace bude vypisovat i požadavky na jídlo nového typu zvířat. Uvědomte si, že v aplikaci jste museli změnit pouze kód plnící kolekci zvířat. Vše ostatní zůstalo beze změny.
