@@ -12,18 +12,18 @@ Cílem je ukázat jednoduchost přidání dalších zvířat v budoucnu.
 1. Připravený `Class1` přejmenujte na `Zvire`.
 1. Přidejte do projektu soubor pro interface `IJidlo`. V něm zadefinujte metody vracející string s názvem `RanniDavka` a `VecerniDavka`. Kód by mohl vypadat takto:
 
-```csharp
+    ```csharp
     public interface IJidlo
     {
         string RanniDavka();
         string VecerniDavka();
     }
-```
+    ```
 
 1. Vraťte se k souboru `Zvire.cs` a upravte obsah definice třídy `Zvire`. Třída je abstraktní. Třída implementuje IJidlo pomocí abstraktních metod. Třída definuje automatické property Vek (typ int) a Jmeno (string).
 1. Třída `Zvire` by měla být definována takto:
 
-```csharp
+    ```csharp
 
     public abstract class Zvire : IJidlo
     {
@@ -33,12 +33,12 @@ Cílem je ukázat jednoduchost přidání dalších zvířat v budoucnu.
         public string Jmeno { get; set; }
         public int Vek { get; set; }
     }
-```
+    ```
 
 1. Přidejte do projektu alespoň čtyři třídy reprezentující zvířata a zadefinujte jim co by se jim asi líbilo k jídlu.
 1. Například Slon by mohl být zadefinován takto:
 
-```csharp
+    ```csharp
     public class Slon : Zvire
     {
         public override string RanniDavka()
@@ -51,4 +51,4 @@ Cílem je ukázat jednoduchost přidání dalších zvířat v budoucnu.
             return "20 kg sena";
         }
     }
-```
+    ```
