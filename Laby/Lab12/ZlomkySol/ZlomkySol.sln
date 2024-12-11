@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zlomky", "Zlomky\Zlomky.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestZlomku", "TestZlomku\TestZlomku.csproj", "{36B04688-9264-40D4-88AE-F61B49456B78}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZlomkyTUnitTests", "ZlomkyTUnitTests\ZlomkyTUnitTests.csproj", "{D1470A5B-EB76-4EC3-A54B-89D8B5B94F56}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{36B04688-9264-40D4-88AE-F61B49456B78}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{36B04688-9264-40D4-88AE-F61B49456B78}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{36B04688-9264-40D4-88AE-F61B49456B78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1470A5B-EB76-4EC3-A54B-89D8B5B94F56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1470A5B-EB76-4EC3-A54B-89D8B5B94F56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1470A5B-EB76-4EC3-A54B-89D8B5B94F56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1470A5B-EB76-4EC3-A54B-89D8B5B94F56}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
